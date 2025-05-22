@@ -2,12 +2,13 @@ async function getData(){
     const response = await fetch("assets/data/recette.json");
     const recettes = await response.json();   
 
-    console.log(recettes);
     renderData(recettes.recipes);
+    research(recettes.recipes);
 }
 
 async function renderData(recettes){
     const container = document.getElementById('recipesContainer');
+    container.innerHTML = "";
     
     recettes.map(recette => {
         let article = document.createElement('article');
@@ -24,6 +25,19 @@ async function renderData(recettes){
         `
         container.appendChild(article);
     })
+}
+
+async function research(recettes){
+    const searchInput = document.getElementById('searchInput');
+    
+    searchInput.addEventListener('input', () => {
+        const researchValue = searchInput.value.toLowerCase();
+        const filteredRecettes = recettes.filter(recette => recette.name.toLowerCase().includes(researchValue));
+
+        renderData(filteredRecettes);
+        console.log(researchValue);
+    })
+
 }
 
 getData();
