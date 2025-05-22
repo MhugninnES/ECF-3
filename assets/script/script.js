@@ -9,6 +9,10 @@ async function getData(){
 async function renderData(recettes){
     const container = document.getElementById('recipesContainer');
     container.innerHTML = "";
+
+    // if(recettes === 1){
+    //     container.classList.add('single-grid');
+    // }else(recette >)
     
     recettes.map(recette => {
         let article = document.createElement('article');

@@ -52,6 +52,8 @@ header h1 {
 }
 
 .recipe-card {
+  /* max-width: 580px; */
+  justify-items: center;
   background: white;
   border-radius: 16px;
   padding: 20px;
@@ -72,6 +74,7 @@ header h1 {
 
 .recipe-card ul {
   padding-left: 20px;
+  max-width: fit-content;
 }
 
 .recipe-card li {
